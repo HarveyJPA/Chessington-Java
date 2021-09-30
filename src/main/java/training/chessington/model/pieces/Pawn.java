@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pawn extends AbstractPiece {
+
     public Pawn(PlayerColour colour) {
         super(Piece.PieceType.PAWN, colour);
     }
@@ -19,6 +20,9 @@ public class Pawn extends AbstractPiece {
         List<Move> possibleMoves = new ArrayList<>();
         Move possibleMove = (colour.equals(PlayerColour.WHITE)) ? new Move(from, from.plus(-1, 0)) : new Move(from, from.plus(1, 0));
         possibleMoves.add(possibleMove);
+        if (notMoved) {
+            possibleMoves.add((colour.equals(PlayerColour.WHITE)) ? new Move(from, from.plus(-2, 0)) : new Move(from, from.plus(2, 0)));
+        }
         return possibleMoves;
     }
 }

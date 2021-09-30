@@ -6,6 +6,11 @@ public abstract class AbstractPiece implements Piece {
 
     protected final Piece.PieceType type;
     protected final PlayerColour colour;
+    protected boolean notMoved = true;
+
+    public void setNotMoved() {
+        this.notMoved = false;
+    }
 
     protected AbstractPiece(Piece.PieceType type, PlayerColour colour) {
         this.type = type;

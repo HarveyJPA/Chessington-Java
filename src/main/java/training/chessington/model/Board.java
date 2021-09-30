@@ -44,6 +44,8 @@ public class Board {
     public void move(Coordinates from, Coordinates to) {
         board[to.getRow()][to.getCol()] = board[from.getRow()][from.getCol()];
         board[from.getRow()][from.getCol()] = null;
+        get(to).setNotMoved();
+
     }
 
     public void placePiece(Coordinates coords, Piece piece) {
