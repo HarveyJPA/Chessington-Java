@@ -5,6 +5,7 @@ import training.chessington.model.Coordinates;
 import training.chessington.model.Move;
 import training.chessington.model.PlayerColour;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,9 @@ public class Pawn extends AbstractPiece {
 
     @Override
     public List<Move> getAllowedMoves(Coordinates from, Board board) {
-        return new ArrayList<>();
+        List<Move> possibleMoves = new ArrayList<>();
+        Move possibleMove = (colour.equals(PlayerColour.WHITE)) ? new Move(from, from.plus(-1, 0)) : new Move(from, from.plus(1, 0));
+        possibleMoves.add(possibleMove);
+        return possibleMoves;
     }
 }
